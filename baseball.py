@@ -9,18 +9,20 @@ import random
 
 correct_numbers = []
 correct_numbers = random.sample(range(1, 10), 3)#세자릿수 만들어 정의하기
+print("corrent numbers : ", correct_numbers)
 print("숫자를 임력하세요 예: 1 2 3")#안내문구 표시
 index = 0 #인데스로 대답을 하나씩 비교할때 쓰는 변수
 strike = 0
-anserd = str(input())#입력 받기
-while strike == 3:#요기가 돌지 않음
+anserd = input()#입력 받기
+while strike < 3:#요기가 돌지 않음
     for correct in correct_numbers:
+        print ("corrent : ", correct, ", anserd: ", anserd[index])
         if correct == anserd[index]:
             print("1S")
             strike + 1
         else:
             print('1B')    
-        index + 1
+        index = index + 1
     if strike != 3:
         print("숫자를 임력하세요 예: 1 2 3")#안내문구 표시
         index = 0 #인데스로 대답을 하나씩 비교할때 쓰는 변수
