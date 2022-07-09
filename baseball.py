@@ -8,22 +8,34 @@ import random
 # 6. 3S 이면 게임 끝
 
 correct_numbers = []
-correct_numbers = random.sample(range(1, 10), 3)#세자릿수 만들어 정의하기
-print("corrent numbers : ", correct_numbers)
-print("숫자를 임력하세요 예: 1 2 3")#안내문구 표시
 index = 0 #인데스로 대답을 하나씩 비교할때 쓰는 변수
 strike = 0
+chance = 0
+correct_numbers = random.sample(range(1, 10), 3)#세자릿수 만들어 정의하기
+print("숫자를 임력하세요. 같은 숫자 안됨. 예: 123")#안내문구 표시
 anserd = input()#입력 받기
-while strike < 3:#요기가 돌지 않음
-    for correct in correct_numbers:
-        print ("corrent : ", correct, ", anserd: ", anserd[index])
-        if correct == anserd[index]:
+while strike < 3:
+    if anserd == '포기':
+        print('실패하셨습니다.')
+        print('정답:',correct_numbers)
+        break 
+    for anserd_Check in anserd:
+        anserd_int = int(anserd_Check)
+        if anserd_int == correct_numbers[index]:
             print("1S")
-            strike + 1
+            strike = strike + 1
         else:
             print('1B')    
         index = index + 1
+
     if strike != 3:
-        print("숫자를 임력하세요 예: 1 2 3")#안내문구 표시
+        strike = 0
+        chance = chance + 1
+        print('시도한 횟수:',chance,'(그만하고 싶으시면 포기라고 쓰세요)')
+        print("숫자를 임력하세요 예: 123")#안내문구 표시
         index = 0 #인데스로 대답을 하나씩 비교할때 쓰는 변수
-        anserd = input().split()#입력 받기
+        anserd = input()#입력 받기
+
+if strike == 3:       
+    print('시도한 횟수:',chance)
+    print('축하합니다!!')        
