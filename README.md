@@ -1,6 +1,10 @@
 # KTigers
 baseball game
 
+# Author (만든 사람)
+* @coffinguru
+* @guudtree
+
 # 사용법
 1. 세자릿수 숫자를 만들어 저장하기
 2. 안내 문구 표시 - "숫자를 입력하세요"
