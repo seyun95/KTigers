@@ -8,16 +8,26 @@ import random
 # 5. 스트라이크와 볼로 표시하기. 예) 1S / 2B 1S / 1B 2S / 3S
 # 6. 3S 이면 게임 끝
 
-def check_answer():   
-    correct_numbers = []
-    correct_numbers = random.sample(range(1, 10), 3)#세자릿수 만들어 정의하기
-    print("숫자를 임력하세요. 같은 숫자 안됨. 예: 123")#안내문구 표시
-    anserd = input()#입력 받기
 
+def make_correct_number(min, max):   
+    correct_numbers = []
+    correct_numbers = random.sample(range(min, max), 3)#세자릿수 만들어 정의하기
+    #print("숫자를 임력하세요. 같은 숫자 안됨. 예: 123")#안내문구 표시
+    #anserd = input()#입력 받기
+    #return anserd, correct_numbers
+    return correct_numbers
+
+def set_value():
+    strike2 = 3
+    boll = 0
+    chance = 0
+    index_anserd = 0 #인데스로 대답을 하나씩 비교할때 쓰는 변수
+    #return strike, boll, chance, index_anserd
+
+def check_answer(correct_numbers, anserd):
     strike = 0
     boll = 0
     chance = 0
-    index_anserd = 0#인데스로 대답을 하나씩 비교할때 쓰는 변수
     while strike < 3:
         if anserd == 'q':
             print('실패하셨습니다.')
@@ -47,5 +57,9 @@ def check_answer():
         print('시도한 횟수:',chance)
         print('축하합니다!!') 
 
+#input_correct_anserd(0, 0)
 
-check_answer()
+num1 = make_correct_number(1,9);
+#num2 = make_correct_number(60,90);
+print ("num1 :", num1)
+check_answer(num1)
